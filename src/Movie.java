@@ -8,10 +8,10 @@ public class Movie {
 
     private String title;
     private int priceCode;
-
+    
     public Movie(String title, int priceCode) {
         this.title = title;
-        this.priceCode = priceCode;
+        setPriceCode(priceCode);
     }
 
     public String getTitle() {
