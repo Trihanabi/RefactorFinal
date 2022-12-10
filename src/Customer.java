@@ -25,7 +25,7 @@ public class Customer {
         String result = "Rental record for " + getName() + "\n";
         for (Rental rental : rentals) {
             // show figures for this rental
-            result += "\t" + rental.getMovie().getTitle() + "\t" + String.valueOf(rental.getChargeFor()) + "\n";
+            result += "\t" + rental.getMovie().getTitle() + "\t" + String.valueOf(rental.getMovie().getChargeFor(rental.getDaysRented())) + "\n";
         }
 
         result += "Amount owed is " + String.valueOf(getTotalCharge()) + "\n";
@@ -38,7 +38,7 @@ public class Customer {
     {
         double result = 0;
         for (Rental rental: rentals) {
-            result += rental.getChargeFor();
+            result += rental.getMovie().getChargeFor(rental.getDaysRented());
         }
         return result;
     }
@@ -50,13 +50,13 @@ public class Customer {
         }
         return result;
     }
-
+    
     private String htmlStatement()
     {
     	String result;
     	result = "<H1>Rentals for <EM>" + getName() + "</EM></H1><P>\n";
     	for (Rental rental: rentals) {
-            result += rental.getMovie().getTitle() + ": " + rental.getChargeFor() + "<BR>\n";
+            result += rental.getMovie().getTitle() + ": " + rental.getMovie().getChargeFor(rental.getDaysRented()) + "<BR>\n";
         }
     	
     	result += "<P>You owe <EM>" + getTotalCharge() + "</EM></P>\n";
