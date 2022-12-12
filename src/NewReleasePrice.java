@@ -1,6 +1,6 @@
 package bad.robot.refactoring.chapter1;
 
-public class NewReleasePrice extends Price{
+public class NewReleasePrice extends Price {
 
     @Override
     public int getPriceCode() {
